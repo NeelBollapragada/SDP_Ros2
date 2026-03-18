@@ -77,9 +77,9 @@ class ArduinoNode(Node):
                 arduino_reply = self.arduino.readline().decode('utf-8').strip()
                 if arduino_reply:
                     self.get_logger().info(f"ARDUINO SAYS: {arduino_reply}")
-                    if "Robot starting via App" in arduino_reply:
+                    if arduino_reply == "1":
                         self.robot_running = True
-                    if "Robot stopping via App" in arduino_reply:
+                    if arduino_reply == "0":
                         self.robot_running = False
                         self.stop_requested = False
 

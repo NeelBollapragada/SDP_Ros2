@@ -18,7 +18,11 @@ class ArduinoNode(Node):
 
         self.robot_running = False
 
+        self.stop_requested = False
+
         self.read_timer = self.create_timer(0.1, self.read_from_arduino)
+
+        self.enforce_stop_timer = self.create_timer(0.5, self.enforce_stop)
 
         try:
             self.arduino = serial.Serial(self.serial_port, self.baud_rate, timeout=1)
@@ -33,7 +37,7 @@ class ArduinoNode(Node):
         if command_str == "START":
             self.robot_running = False  # reset until we get confirmation
         if command_str == "STOP":
-            self.robot_running = False
+            self.stop_requested = True
 
         # Always send START and STOP
         # Only send angles if robot confirmed running
@@ -50,6 +54,21 @@ class ArduinoNode(Node):
         else:
             self.get_logger().error("Arduino not set up")
 
+    def enforce_stop(self):
+
+        if self.stop_requested and self.robot_running:
+            self.get_logger().warn("Robot not confirmed stop yet. Resending STOP command")
+            if self.arduino:
+                try:
+                    self.arduino.write("STOP\n".encode('utf-8'))
+                    self.arduino.flush()
+                except Exception as e:
+                    self.get_logger().error(f"Failed to write STOP to serial: {e}")
+        
+        elif not self.robot_running and self.stop_requested:
+            self.stop_requested = False
+            self.get_logger().info("Stop confirmed, ending STOP enforcements.")
+
     def read_from_arduino(self):
 
         if self.arduino and self.arduino.in_waiting > 0:
@@ -61,6 +80,8 @@ class ArduinoNode(Node):
                         self.robot_running = True
                     if "Robot stopping via App" in arduino_reply:
                         self.robot_running = False
+                        self.stop_requested = False
+
             except Exception as e:
                 self.get_logger().error(f"Failed to read from Arduino: {e}")
 

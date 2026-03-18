@@ -1,0 +1,9 @@
+source;share/tracksense_robot_pkg/hook/pythonpath.ps1
+source;share/tracksense_robot_pkg/hook/pythonpath.dsv
+source;share/tracksense_robot_pkg/hook/pythonpath.sh
+source;share/tracksense_robot_pkg/hook/ament_prefix_path.ps1
+source;share/tracksense_robot_pkg/hook/ament_prefix_path.dsv
+source;share/tracksense_robot_pkg/hook/ament_prefix_path.sh
+source;../../build/tracksense_robot_pkg/share/tracksense_robot_pkg/hook/pythonpath_develop.ps1
+source;../../build/tracksense_robot_pkg/share/tracksense_robot_pkg/hook/pythonpath_develop.dsv
+source;../../build/tracksense_robot_pkg/share/tracksense_robot_pkg/hook/pythonpath_develop.sh

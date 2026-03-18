@@ -1,0 +1,30 @@
+running egg_info
+creating ../../build/tracksense_robot_pkg/tracksense_robot_pkg.egg-info
+writing ../../build/tracksense_robot_pkg/tracksense_robot_pkg.egg-info/PKG-INFO
+writing dependency_links to ../../build/tracksense_robot_pkg/tracksense_robot_pkg.egg-info/dependency_links.txt
+writing requirements to ../../build/tracksense_robot_pkg/tracksense_robot_pkg.egg-info/requires.txt
+writing top-level names to ../../build/tracksense_robot_pkg/tracksense_robot_pkg.egg-info/top_level.txt
+writing manifest file '../../build/tracksense_robot_pkg/tracksense_robot_pkg.egg-info/SOURCES.txt'
+reading manifest file '../../build/tracksense_robot_pkg/tracksense_robot_pkg.egg-info/SOURCES.txt'
+writing manifest file '../../build/tracksense_robot_pkg/tracksense_robot_pkg.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /SDP_Ros2/build/tracksense_robot_pkg/build
+creating /SDP_Ros2/build/tracksense_robot_pkg/build/lib
+creating /SDP_Ros2/build/tracksense_robot_pkg/build/lib/tracksense_robot_pkg
+copying tracksense_robot_pkg/__init__.py -> /SDP_Ros2/build/tracksense_robot_pkg/build/lib/tracksense_robot_pkg
+running install
+running install_lib
+creating /SDP_Ros2/install/tracksense_robot_pkg/lib/python3.12/site-packages/tracksense_robot_pkg
+copying /SDP_Ros2/build/tracksense_robot_pkg/build/lib/tracksense_robot_pkg/__init__.py -> /SDP_Ros2/install/tracksense_robot_pkg/lib/python3.12/site-packages/tracksense_robot_pkg
+byte-compiling /SDP_Ros2/install/tracksense_robot_pkg/lib/python3.12/site-packages/tracksense_robot_pkg/__init__.py to __init__.cpython-312.pyc
+running install_data
+creating /SDP_Ros2/install/tracksense_robot_pkg/share/ament_index
+creating /SDP_Ros2/install/tracksense_robot_pkg/share/ament_index/resource_index
+creating /SDP_Ros2/install/tracksense_robot_pkg/share/ament_index/resource_index/packages
+copying resource/tracksense_robot_pkg -> /SDP_Ros2/install/tracksense_robot_pkg/share/ament_index/resource_index/packages
+copying package.xml -> /SDP_Ros2/install/tracksense_robot_pkg/share/tracksense_robot_pkg
+running install_egg_info
+Copying ../../build/tracksense_robot_pkg/tracksense_robot_pkg.egg-info to /SDP_Ros2/install/tracksense_robot_pkg/lib/python3.12/site-packages/tracksense_robot_pkg-0.0.0-py3.12.egg-info
+running install_scripts
+writing list of installed files to '/SDP_Ros2/build/tracksense_robot_pkg/install.log'

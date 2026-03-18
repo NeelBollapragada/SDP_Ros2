@@ -36,6 +36,7 @@ class ArduinoNode(Node):
         command_str = msg.data
         if command_str == "START":
             self.robot_running = False  # reset until we get confirmation
+            self.stop_requested = False
         if command_str == "STOP":
             self.stop_requested = True
 

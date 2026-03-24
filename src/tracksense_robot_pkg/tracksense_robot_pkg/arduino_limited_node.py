@@ -9,7 +9,7 @@ BAUD_RATE = 115200
 
 class ArduinoLimNode(Node):
     def __init__(self):
-        super().__init__('arduino_lim_node')
+        super().__init__('arduino_limited_node')
 
         self.subscription = self.create_subscription(String, "robot/motor_commands", lambda msg: self.command_callback(msg), 10)
 
@@ -19,6 +19,8 @@ class ArduinoLimNode(Node):
         self.robot_running = False
 
         self.stop_requested = False
+
+        self.read_timer = self.create_timer(0.1, self.read_from_arduino)
 
         try:
             self.arduino = serial.Serial(self.serial_port, self.baud_rate, timeout=1)
@@ -48,6 +50,16 @@ class ArduinoLimNode(Node):
                 self.get_logger().error(f"Failed to write to serial: {e}")
         else:
             self.get_logger().error("Arduino not set up")
+
+    def read_from_arduino(self):
+
+        if self.arduino:
+            try:
+                arduino_reply = self.arduino.readline().decode('utf-8', errors='ignore').strip()
+                if arduino_reply:
+                    self.get_logger().info(f"ARDUINO SAYS: {arduino_reply}")
+            except Exception as e:
+                self.get_logger().error(f"Failed to read from Arduino: {e}")
 
 def main(args=None):
     rclpy.init(args=args)

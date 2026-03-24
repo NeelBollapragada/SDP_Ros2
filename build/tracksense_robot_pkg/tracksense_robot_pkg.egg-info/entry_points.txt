@@ -1,4 +1,5 @@
 [console_scripts]
+arduino_limited_node = tracksense_robot_pkg.arduino_limited_node:main
 arduino_node = tracksense_robot_pkg.arduino_node:main
 bridge_node = tracksense_robot_pkg.bridge_node:main
 front_camera_node = tracksense_robot_pkg.front_camera_node:main

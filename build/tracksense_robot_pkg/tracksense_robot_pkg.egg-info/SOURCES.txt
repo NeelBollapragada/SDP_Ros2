@@ -9,6 +9,7 @@ setup.py
 ../../build/tracksense_robot_pkg/tracksense_robot_pkg.egg-info/zip-safe
 resource/tracksense_robot_pkg
 tracksense_robot_pkg/__init__.py
+tracksense_robot_pkg/arduino_limited_node.py
 tracksense_robot_pkg/arduino_node.py
 tracksense_robot_pkg/bridge_node.py
 tracksense_robot_pkg/front_camera_node.py

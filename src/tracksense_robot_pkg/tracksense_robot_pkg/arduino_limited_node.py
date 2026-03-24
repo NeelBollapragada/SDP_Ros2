@@ -1,0 +1,67 @@
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import String
+import serial
+import time
+
+SERIAL_PORT = "/dev/ttyACM0"
+BAUD_RATE = 115200
+
+class ArduinoLimNode(Node):
+    def __init__(self):
+        super().__init__('arduino_lim_node')
+
+        self.subscription = self.create_subscription(String, "robot/motor_commands", lambda msg: self.command_callback(msg), 10)
+
+        self.serial_port = SERIAL_PORT
+        self.baud_rate = BAUD_RATE
+
+        self.robot_running = False
+
+        self.stop_requested = False
+
+        try:
+            self.arduino = serial.Serial(self.serial_port, self.baud_rate, timeout=1)
+            time.sleep(2)
+
+            self.get_logger().info(f"Connected to arduino on port {self.serial_port}")
+        except Exception as e:
+            self.get_logger().error("Failed to connect to arduino")
+            self.arduino = None
+
+    def command_callback(self, msg):
+        command_str = msg.data
+        if command_str == "START":
+            self.robot_running = True
+        if command_str == "STOP":
+            self.robot_running = False
+
+        if command_str.startswith("FRONT_ANGLE") and not self.robot_running:
+            self.get_logger().warn("Skipping angle command, robot not running")
+            return
+
+        if self.arduino:
+            try:
+                self.arduino.write(f"{command_str}\n".encode('utf-8'))
+                self.arduino.flush()
+            except Exception as e:
+                self.get_logger().error(f"Failed to write to serial: {e}")
+        else:
+            self.get_logger().error("Arduino not set up")
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = ArduinoLimNode()
+
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        if node.arduino:
+            node.arduino.close()
+        node.destroy_node()
+        rclpy.shutdown()
+
+if __name__ == "__main__":
+    main()

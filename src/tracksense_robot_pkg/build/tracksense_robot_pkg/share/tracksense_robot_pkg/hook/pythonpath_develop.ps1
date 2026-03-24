@@ -1,0 +1,3 @@
+# generated from colcon_powershell/shell/template/hook_prepend_value.ps1.em
+
+colcon_prepend_unique_value PYTHONPATH "$env:COLCON_CURRENT_PREFIX\/SDP_Ros2/src/tracksense_robot_pkg/build/tracksense_robot_pkg"

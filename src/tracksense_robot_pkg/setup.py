@@ -28,6 +28,7 @@ setup(
             'bridge_node = tracksense_robot_pkg.bridge_node:main',
             'rear_camera_node = tracksense_robot_pkg.rear_camera_node:main',
             'front_camera_node = tracksense_robot_pkg.front_camera_node:main',
+            'arduino_limited_node = tracksense_robot_pkg.arduino_limited_node:main',
         ],
     },
 )

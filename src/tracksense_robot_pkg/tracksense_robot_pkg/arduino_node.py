@@ -26,7 +26,10 @@ class ArduinoNode(Node):
 
         try:
             self.arduino = serial.Serial(self.serial_port, self.baud_rate, timeout=1)
-            time.sleep(2)
+            time.sleep(500)
+
+            self.arduino.reset_input_buffer()
+
             self.get_logger().info(f"Connected to arduino on port {self.serial_port}")
         except Exception as e:
             self.get_logger().error("Failed to connect to arduino")
@@ -74,7 +77,7 @@ class ArduinoNode(Node):
 
         if self.arduino and self.arduino.in_waiting > 0:
             try:
-                arduino_reply = self.arduino.readline().decode('utf-8').strip()
+                arduino_reply = self.arduino.readline().decode('utf-8', errors='ignore').strip()
                 if arduino_reply:
                     self.get_logger().info(f"ARDUINO SAYS: {arduino_reply}")
                     if arduino_reply == "1":

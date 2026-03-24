@@ -26,7 +26,7 @@ class ArduinoNode(Node):
 
         try:
             self.arduino = serial.Serial(self.serial_port, self.baud_rate, timeout=1)
-            time.sleep(500)
+            time.sleep(2)
 
             self.arduino.reset_input_buffer()
 

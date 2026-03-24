@@ -27,6 +27,11 @@ class ArduinoNode(Node):
         try:
             self.arduino = serial.Serial(self.serial_port, self.baud_rate, timeout=1)
             time.sleep(2)
+<<<<<<< HEAD
+=======
+
+            self.arduino.reset_input_buffer()
+>>>>>>> fa27b0ab2302fed708564273777c305f53e39a63
 
             self.get_logger().info(f"Connected to arduino on port {self.serial_port}")
         except Exception as e:

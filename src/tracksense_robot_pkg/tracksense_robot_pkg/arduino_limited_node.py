@@ -4,7 +4,7 @@ from std_msgs.msg import String
 import serial
 import time
 
-SERIAL_PORT = "/dev/ttyACM0"
+SERIAL_PORT = "/dev/ttyAMA0"
 BAUD_RATE = 115200
 
 class ArduinoLimNode(Node):

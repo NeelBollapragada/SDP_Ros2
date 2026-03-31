@@ -7,7 +7,7 @@ import cv2
 import socket
 import threading
 
-SERVER_IP = "192.168.118.173" # laptop ip
+SERVER_IP = "192.168.133.173" # laptop ip
 REAR_VIDEO_PORT = 8000
 FRONT_VIDEO_PORT = 8002
 COMMAND_PORT = 8001

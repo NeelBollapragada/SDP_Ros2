@@ -1,0 +1,21 @@
+[2.805s] Invoking command in '/SDP_Ros2/build/tracksense_robot_pkg': PYTHONPATH=/SDP_Ros2/build/tracksense_robot_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/SDP_Ros2/install/tracksense_robot_pkg/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /SDP_Ros2/build/tracksense_robot_pkg/build --no-deps symlink_data
+[3.101s] running develop
+[3.259s] running egg_info
+[3.274s] writing tracksense_robot_pkg.egg-info/PKG-INFO
+[3.302s] writing dependency_links to tracksense_robot_pkg.egg-info/dependency_links.txt
+[3.318s] writing entry points to tracksense_robot_pkg.egg-info/entry_points.txt
+[3.334s] writing requirements to tracksense_robot_pkg.egg-info/requires.txt
+[3.350s] writing top-level names to tracksense_robot_pkg.egg-info/top_level.txt
+[3.380s] reading manifest file 'tracksense_robot_pkg.egg-info/SOURCES.txt'
+[3.382s] writing manifest file 'tracksense_robot_pkg.egg-info/SOURCES.txt'
+[3.411s] running build_ext
+[3.434s] Creating /SDP_Ros2/install/tracksense_robot_pkg/lib/python3.12/site-packages/tracksense-robot-pkg.egg-link (link to .)
+[3.482s] Installing arduino_limited_node script to /SDP_Ros2/install/tracksense_robot_pkg/lib/tracksense_robot_pkg
+[3.498s] Installing arduino_node script to /SDP_Ros2/install/tracksense_robot_pkg/lib/tracksense_robot_pkg
+[3.498s] Installing bridge_node script to /SDP_Ros2/install/tracksense_robot_pkg/lib/tracksense_robot_pkg
+[3.498s] Installing front_camera_node script to /SDP_Ros2/install/tracksense_robot_pkg/lib/tracksense_robot_pkg
+[3.498s] Installing rear_camera_node script to /SDP_Ros2/install/tracksense_robot_pkg/lib/tracksense_robot_pkg
+[3.498s] 
+[3.498s] Installed /SDP_Ros2/build/tracksense_robot_pkg
+[3.499s] running symlink_data
+[3.564s] Invoked command in '/SDP_Ros2/build/tracksense_robot_pkg' returned '0': PYTHONPATH=/SDP_Ros2/build/tracksense_robot_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/SDP_Ros2/install/tracksense_robot_pkg/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /SDP_Ros2/build/tracksense_robot_pkg/build --no-deps symlink_data
